@@ -2,7 +2,7 @@ const errors = require("restify-errors");
 const Sticker = require("../models/Sticker");
 const authContoller = require("../controllers/authController");
 module.exports = server => {
-  server.get("/stickers", authContoller.protect, async (req, res, next) => {
+  server.get("/stickers", async (req, res, next) => {
     try {
       const stickers = await Sticker.find({});
       res.send(stickers);
